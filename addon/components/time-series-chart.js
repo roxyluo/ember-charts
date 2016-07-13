@@ -403,7 +403,7 @@ const TimeSeriesChartComponent = ChartComponent.extend(LegendMixin,
   // the assigned value from being so large that labels flood the x axis.
   maxNumberOfLabels: Ember.computed('numXTicks', 'dynamicXAxis', 'maxNumberOfRotatedLabels', function(key, value){
     var allowableTicks = this.get('xAxisVertLabels') ? this.get('maxNumberOfRotatedLabels') : this.get('numXTicks');
-    
+
     if (this.get('dynamicXAxis')) {
       value = _.isNaN(value) ? this.get('DEFAULT_MAX_NUMBER_OF_LABELS') : value;
       return Math.min(value, allowableTicks);
@@ -837,7 +837,9 @@ const TimeSeriesChartComponent = ChartComponent.extend(LegendMixin,
     'hasXAxisTitle',
     'hasYAxisTitle',
     'xTitleHorizontalOffset',
-    'yTitleVerticalOffset'
+    'yTitleVerticalOffset',
+    'xAxisVertLabels',
+    'maxNumberOfMinorTicks'
   ],
 
   drawChart: function() {
